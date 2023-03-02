@@ -16,8 +16,8 @@ def result():
     month=output["month"]
     item =output["itemNo"]
     wf.writetoCSV(month,item)
-    mainFile.datasetAnalize()
-    return render_template("index.html",month=month,item=item)
+    res =  mainFile.datasetAnalize()
+    return render_template("index.html",month=month,item=item ,res=res)
     
 if __name__ == '__main__':
     app.run(debug=True)

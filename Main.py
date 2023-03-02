@@ -36,6 +36,8 @@ def datasetAnalize():
           x,y =sp.splitDataset()
           ma.getModelAccuracy(model,x,y)
           recodeDataRemove()
+          return "Aggregated"
+      return ""
                 
 def recodeDataRemove():
     import csv

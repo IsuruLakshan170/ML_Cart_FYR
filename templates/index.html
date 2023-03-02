@@ -2,19 +2,78 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Login Page</title>
   </head>
   <body>
-    <h1>Cart</h1>
-    <h4>{{month}}</h4>
-    <h4>{{item}}</h4>
-
     <form class = "grid" action="/result" method="POST">
-      <label for="month">Month </label>
-      <input type="text" id="month" name="month" required><br>
-      <label for="itemNo">Item NO</label>
-      <input type="text" id="itemNo" name="itemNo" required><br>
-      <input type="submit" value="save">
-    </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+         
+        </div>
+        <div class="col-sm">
+          <h1 class="text-primary">Cart</h1>
+        </div>
+        <div class="col-sm">
+       
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+         
+        </div>
+        <div class="col-sm-2">
+          <label for="month">Month </label>
+        </div>
+        <div class="col-sm-2">
+          <input type="text" id="month" name="month" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+         
+        </div>
+        <div class="col-sm-2">
+          <label for="itemNo">Item NO</label>
+        </div>
+        <div class="col-sm-2">
+          <input type="text" id="itemNo" name="itemNo" required><br>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4">
+         
+        </div>
+        <div class="col-sm-2">
+          <input class="btn btn-primary" type="submit" value="save">
+        </div>
+        <div class="col-sm-2">
+         
+        </div>
+      </div>
+      
+
+      <div class="row">
+        <div class="col-sm-4">
+         
+        </div>
+        <div class="col-sm-2">
+         
+        </div>
+        <div class="col-sm-2">
+          <h4>{{month}} {{item}} {{res}}</h4>
+          
+        </div>
+      </div>
+    </div>
+   
+  </form>
+   
+    
+
+   
   </body>
 </html>
