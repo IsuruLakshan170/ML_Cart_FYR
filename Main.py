@@ -12,23 +12,17 @@ import loadModelData as lmd
 import modelAccuracy as ma
 import dataSetSplit as sp
 import collectData as cd
+import modelAggregation 
 
-
-def project():
+def initProject():
     im.intModel()
-    while 1:
-        loadmodel=mg.create_model()
-        loadmodel.load_weights('modelData/model_weights.h5')
-        x,y = cd.dataStore(3, 2).fill_data()
-        mt.continuoustrainModel(loadmodel,x,y)
-        x,y =sp.splitDataset()
-        ma.getModelAccuracy(loadmodel,x,y)
+
+
 
 def datasetAnalize():
       cartData = pd.read_csv('dataset/cartData.csv')
-      print(len(cartData))
       if(len(cartData) == 3):
-          print("Must do aggregation")
+          print("Strat local training")
           model=mg.create_model()
           model.load_weights('modelData/model_weights.h5')
           x,y = sp.splitCartData()
@@ -36,6 +30,7 @@ def datasetAnalize():
           x,y =sp.splitDataset()
           ma.getModelAccuracy(model,x,y)
           recodeDataRemove()
+          modelAggregation.modelAggregation()
           return "Aggregated"
       return ""
                 
@@ -53,9 +48,8 @@ def recodeDataRemove():
 
     print("Remove trained  data")
     
-    
-    
-recodeDataRemove()
+
+
 
 # dataset = dataStore(3,5
 # 2

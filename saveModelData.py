@@ -5,13 +5,13 @@ from tensorflow import keras
 
 def saveModelData(model):
     #save model
-    model.save('dataset/model.h5')
+    model.save('modelData/model.h5')
     #save model parameters
-    model.save_weights('dataset/model_weights.h5')
+    model.save_weights('modelData/model_weights.h5')
     #convert and save model into tensorflow type
-    # convertToTenserflowModel(model)
+    convertToTenserflowModel(model)
     # Get the size of the saved model file
-    model_size_bytes = os.path.getsize('dataset/model.h5')
+    model_size_bytes = os.path.getsize('modelData/model.h5')
     # Convert bytes to MB
     model_size_mb = model_size_bytes / (1024 * 1024)
 
@@ -24,6 +24,9 @@ def saveModelData(model):
     model_size_mb = model_size_bytes / (1024 * 1024)
 
     print(f"The size of the saved model parameters file is {model_size_mb:.2f} MB.")
+    print("Saved")
+    
+    
     
     
 def convertToTenserflowModel(model):

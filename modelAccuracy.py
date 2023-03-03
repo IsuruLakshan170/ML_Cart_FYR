@@ -14,5 +14,5 @@ def getModelAccuracy(model,test_data,test_labels):
     # Calculate the accuracy by comparing the predicted values to the actual test labels
     accuracy = np.mean(predictions == test_labels)
     # print("Actucal Value : " ,test_labels ,"Predicted value : ", predictions)
-    print("Model Accuracy: {:.2f}%".format(accuracy * 100))
+    print("Model Accuracy----------------------: {:.2f}%".format(accuracy * 100))
     return accuracy

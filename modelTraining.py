@@ -13,7 +13,7 @@ def trainModel(model):
     
     train_data, test_data, train_labels, test_labels = train_test_split(my_data[['Month']], my_data['Item'], test_size=0.2)
     # Train the model
-    model.fit(train_data, train_labels, epochs=3, batch_size=100)
+    model.fit(train_data, train_labels, epochs=5, batch_size=100)
     # Evaluate the model on the test data
     test_loss, test_accuracy = model.evaluate(test_data, test_labels)
     #save model data
@@ -22,13 +22,20 @@ def trainModel(model):
     print("Test accuracy: ", test_accuracy)
     return test_loss, test_accuracy
    
+   
+   
+   
+   
+   
+   
+   
 def continuoustrainModel(model,train_data,train_labels):
     #Load  the dataset from the CSV file
     my_data = pd.read_csv('dataset/dataset.csv')
     
     train_x, test_data, train_y, test_labels = train_test_split(my_data[['Month']], my_data['Item'], test_size=0.2)
     # Train the model
-    model.fit(train_data, train_labels, epochs=3, batch_size=100)
+    model.fit(train_data, train_labels, epochs=5, batch_size=100)
     # Evaluate the model on the test data
     test_loss, test_accuracy = model.evaluate(test_data, test_labels)
     #save model data

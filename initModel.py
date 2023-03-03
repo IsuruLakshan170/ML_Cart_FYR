@@ -8,14 +8,15 @@ import dataSetSplit as sp
 
 def intModel():
     # #generate dataset
-    ds.DatasetGenerator(100)
+    ds.DatasetGenerator(500)
     #split data and use for predict accuracy
     x,y =sp.splitDataset()
     #define  new model 
-    model1=mg.create_model()
+    model=mg.create_model()
     #training 
-    mt.trainModel(model1)
+    mt.trainModel(model)
     #get accruaracy
-    ma.getModelAccuracy(model1,x,y)
+    ma.getModelAccuracy(model,x,y)
     
-    return model1
+    return model
+intModel()
