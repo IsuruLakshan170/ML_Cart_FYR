@@ -1,3 +1,4 @@
+#write cart data to csv file
 import csv
 
 def writetoCSV(firstVal,secondVal):
@@ -14,4 +15,4 @@ def writetoCSV(firstVal,secondVal):
         # write the new data to the file
         for row in new_data:
             writer.writerow(row)
-    print(firstVal,"and" ,secondVal,"Added")
+    print(firstVal,"and" ,secondVal,"Added to csv file")

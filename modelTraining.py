@@ -1,3 +1,4 @@
+#train the ML model
 #libraries
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -23,12 +24,8 @@ def trainModel(model):
     return test_loss, test_accuracy
    
    
-   
-   
-   
-   
-   
-   
+
+
 def continuoustrainModel(model,train_data,train_labels):
     #Load  the dataset from the CSV file
     my_data = pd.read_csv('dataset/dataset.csv')
