@@ -1,6 +1,5 @@
 import requests
 
-
 def downloadFile(url,filename):
     try:
         with requests.get(url) as req:
