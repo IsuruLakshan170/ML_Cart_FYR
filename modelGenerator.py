@@ -9,7 +9,7 @@ from tensorflow import keras
 def create_model():
     # Define the model architecture
     model = keras.Sequential([
-        keras.layers.Dense(16, activation=tf.nn.relu, input_shape=(1,)),
+        keras.layers.Dense(16, activation=tf.nn.relu, input_shape=(2,)),
         keras.layers.Dense(16, activation=tf.nn.relu),
         keras.layers.Dense(1)
     ])

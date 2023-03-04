@@ -13,5 +13,4 @@ def downloadFile(url,filename):
         return None
 
 downloadLink = 'https://thumbs.dreamstime.com/z/close-up-inside-okra-flowe-45588243.jpg'
-
-downloadFile(downloadLink,'downloads/testImage.png')
+downloadFile(downloadLink,'downloads/testImage.h5')

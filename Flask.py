@@ -16,7 +16,8 @@ def result():
     output =request.form.to_dict()
     month=output["month"]
     item =output["itemNo"]
-    wf.writetoCSV(month,item)
+    gender=output["gender"]
+    wf.writetoCSV(month,item,gender)
     res =  mainFile.datasetAnalize()
     return render_template("index.html",month=month,item=item ,res=res)
     
