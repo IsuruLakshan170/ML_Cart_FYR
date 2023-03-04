@@ -20,3 +20,4 @@ def intModel():
     ma.getModelAccuracy(model,x,y)
     
     # return model
+    
