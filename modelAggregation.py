@@ -31,3 +31,4 @@ def modelAggregation():
     ma.getModelAccuracy(model,x,y)
     print("Aggregrate Complete")
 
+

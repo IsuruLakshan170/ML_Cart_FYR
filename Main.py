@@ -1,4 +1,4 @@
-
+#project initilaization
 #libraries
 from sklearn.model_selection import train_test_split
 import pandas as pd
@@ -9,10 +9,10 @@ import modelTraining as mt
 import modelAccuracy as ma
 import dataSetSplit as sp
 import modelAggregation 
+import fileHandle as fh
 
 def initProject():
     im.intModel()
-
 
 
 def datasetAnalize():
@@ -31,6 +31,8 @@ def datasetAnalize():
           recodeDataRemove()
           #aggregate the models
           modelAggregation.modelAggregation()
+          #remove received files
+          fh.removeFiles()
           return "Aggregated"
       return ""
                 
