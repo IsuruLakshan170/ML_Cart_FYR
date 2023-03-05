@@ -22,11 +22,11 @@ def datasetAnalize():
           model=mg.create_model()
           model.load_weights('modelData/model_weights.h5')
           #traing model using cartdata
-          x,y = sp.splitCartData()
-          mt.continuoustrainModel(model,x,y)
+          x_train,y_train = sp.splitCartData()
+          mt.continuoustrainModel(model,x_train,y_train)
           #test model using local data
-          x,y =sp.splitDataset()
-          ma.getModelAccuracy(model,x,y)
+          x_train_np, y_train_np,x_test_np,y_test_np =sp.splitDataset()
+          ma.getModelAccuracy(model,x_test_np,y_test_np)
           #clear the csv file
           recodeDataRemove()
           #aggregate the models
@@ -35,7 +35,9 @@ def datasetAnalize():
           fh.removeFiles()
           return "Aggregated"
       return ""
-                
+  
+
+
 def recodeDataRemove():
     import csv
 

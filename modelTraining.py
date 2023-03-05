@@ -3,41 +3,31 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-import numpy as np
+from keras.callbacks import EarlyStopping
 
 #import files
 import saveModelData as sm
 
-def trainModel(model):
-    #Load  the dataset from the CSV file
-    my_data = pd.read_csv('dataset/dataset.csv')
-    
-    train_data, test_data, train_labels, test_labels = train_test_split(my_data[['Month','Gender']], my_data['Item'], test_size=0.2)
+def trainModel(model,train_data1,train_labels1):
     # Train the model
-    model.fit(train_data, train_labels, epochs=5, batch_size=100)
-    # Evaluate the model on the test data
-    test_loss, test_accuracy = model.evaluate(test_data, test_labels)
+    early_stopping = EarlyStopping(monitor='val_loss', patience=5)
+
+    model.fit(train_data1, train_labels1, epochs=1, batch_size=128, validation_split=0.2, callbacks=[early_stopping])
+    print("Model trained successfully")
+
     #save model data
     sm.saveModelData(model)
-    print("Test loss: ", test_loss);
-    print("Test accuracy: ", test_accuracy)
-    return test_loss, test_accuracy
+    return model
    
    
 
 
-def continuoustrainModel(model,train_data,train_labels):
-    #Load  the dataset from the CSV file
-    my_data = pd.read_csv('dataset/dataset.csv')
-    
-    train_x, test_data, train_y, test_labels = train_test_split(my_data[['Month','Gender']], my_data['Item'], test_size=0.2)
+def continuoustrainModel(model,train_data1,train_labels1):
     # Train the model
-    model.fit(train_data, train_labels, epochs=5, batch_size=100)
-    # Evaluate the model on the test data
-    test_loss, test_accuracy = model.evaluate(test_data, test_labels)
+    early_stopping = EarlyStopping(monitor='val_loss', patience=5)
+
+    model.fit(train_data1, train_labels1, epochs=1, batch_size=128, validation_split=0.2, callbacks=[early_stopping])
     #save model data
     sm.saveModelData(model)
-    print("Test loss: ", test_loss);
-    print("Test accuracy: ", test_accuracy)
-    return test_loss, test_accuracy
+    return model
    

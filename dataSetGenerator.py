@@ -8,7 +8,7 @@ def DatasetGenerator(datasetSize):
     end_date = datetime(2023, 12, 31)
 
     # Number of rows to generate
-    num_rows = 1000
+    num_rows = datasetSize
 
     # Create a list of dates by repeating the date range multiple times
     date_range = pd.date_range(start=start_date, end=end_date, freq='D')
@@ -71,9 +71,11 @@ def DatasetGenerator(datasetSize):
                 df.at[i, "Item"] = random.choice([1, 2])
                 df.at[i,"Gender"] =0
 
+
+
     # Ensure that the "Item" column values are integers
     df["Item"] = df["Item"].astype(int)
     df["Gender"] = df["Gender"].astype(int)
     df.to_csv('dataset/dataset.csv', index=False)
-    print("Generated and Saved")
+    print("Dataset Generated and Saved")
     

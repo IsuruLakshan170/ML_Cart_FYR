@@ -1,20 +1,19 @@
 #get model accuracy
 
 #libraries
-import pandas as pd
-from sklearn.model_selection import train_test_split
-import numpy as np
+from sklearn.metrics import accuracy_score
 
-def getModelAccuracy(model,test_data,test_labels):
-    predictions = model.predict(test_data)
-    predictions = np.round(predictions)
-    predictions = predictions.astype(int)
+def getModelAccuracy(model,test_data1,test_labels1):
+      #Predict model 1  test using test date
+    y_pred_model_1 = model.predict(test_data1)
 
-    predictions = predictions.ravel()
-    test_labels = test_labels.ravel()
+    # The predictions are in the form of probability of each class, so we will take the class with highest probability
+    y_pred_model_1 = y_pred_model_1.argmax(axis=-1)
 
-    # Calculate the accuracy by comparing the predicted values to the actual test labels
-    accuracy = np.mean(predictions == test_labels)
-    # print("Actucal Value : " ,test_labels ,"Predicted value : ", predictions)
-    print("Model Accuracy----------------------: {:.2f}%".format(accuracy * 100))
-    return accuracy
+    # Calculate the accuracy of the model
+
+    print(y_pred_model_1)
+    print(test_labels1)
+    accuracy_model_1 = accuracy_score(test_labels1, y_pred_model_1)
+    print("Model test Accuracy:", accuracy_model_1*100)
+    return accuracy_model_1
