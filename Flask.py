@@ -81,8 +81,8 @@ if __name__ == '__main__':
     flask_thread = threading.Thread(target=app.run)
     train_thread = threading.Thread(target=serverSock.serverConnect)
 
-    train_thread.start()
     # Start the threads
+    train_thread.start()
     flask_thread.start()
 
     # Wait for the threads to finish

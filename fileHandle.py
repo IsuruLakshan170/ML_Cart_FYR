@@ -28,3 +28,13 @@ def removeFiles():
              print("That file does not exist")
     print("Model parameters are removed from the local filesystem")
 
+def removeInitFiles():
+    for i in range(5):
+        num=i+1
+        path = f'initModelParameters/model_weights_{num}.h5'
+        try:
+             os.remove(path)
+        except FileNotFoundError:
+             print("That file does not exist")
+    print("Model parameters are removed from inital model parameter folder the local filesystem")
+
