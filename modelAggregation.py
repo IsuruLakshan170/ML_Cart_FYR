@@ -14,23 +14,26 @@ def modelAggregation():
         num=i+1
         print("Received Model ------> ",num)
         model.load_weights(f'receivedModelParameter/model_weights_{num}.h5')
+       
         ma.getModelAccuracy(model,x_test_np,y_test_np)
         receivedModelParameters  = model.get_weights()
+        print(type(receivedModelParameters))
         parameterArray[i]=receivedModelParameters
     print("Local Model ------> ")
     model.load_weights('modelData/model_weights.h5')
     ma.getModelAccuracy(model,x_test_np,y_test_np)
     receivedModelParameters  = model.get_weights()
+    print(type(receivedModelParameters))
     parameterArray[5]=receivedModelParameters
     # averageWeight=[(w1 + w2 + w3 + w4 + w5 + w6 )/6 for w1, w2, w3, w4, w5, w6 in zip(parameterArray[0], parameterArray[1], parameterArray[2], parameterArray[3], parameterArray[4], parameterArray[5])]
     averageWeight=[(w1 + w2 + w3+ w4 + w5 + w6 )/6 for w1, w2 , w3, w4 , w5 , w6 in zip(parameterArray[0], parameterArray[1],parameterArray[2], parameterArray[3],parameterArray[4], parameterArray[5])]
     model.set_weights(averageWeight)
      #save averaged parameters
-    model.save_weights('modelData/averaged_model_weights.h5')
+    saveModel.saveModelData(model)
     print("Aggregrated model ------> ")
-    model.load_weights('modelData/averaged_model_weights.h5')
     ma.getModelAccuracy(model,x_test_np,y_test_np)
     print("Aggregrate Complete")
+    
 
 
 
