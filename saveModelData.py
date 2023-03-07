@@ -17,7 +17,6 @@ def saveModelData(model):
 
     print(f"The size of the saved model file is {model_size_mb:.2f} MB.")
 
-
     # Get the size of the saved model weight file
     model_size_bytes = os.path.getsize('modelData/model_weights.h5')
     # Convert bytes to MB

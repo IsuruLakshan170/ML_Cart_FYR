@@ -11,10 +11,11 @@ import dataSetSplit as sp
 import modelAggregation 
 import fileHandle as fh
 
+#cart initialisation 
 def initProject():
     im.intModel()
 
-
+#inserted data analysis
 def datasetAnalize():
       cartData = pd.read_csv('dataset/cartData.csv')
       if(len(cartData) == 3):
@@ -37,7 +38,7 @@ def datasetAnalize():
       return ""
   
 
-
+#remove stored data in carData file
 def recodeDataRemove():
     import csv
 

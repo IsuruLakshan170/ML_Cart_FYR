@@ -1,6 +1,7 @@
 import requests
 import os
 
+#download files from internet
 def downloadFile(url,filename):
     try:
         with requests.get(url) as req:
@@ -17,7 +18,7 @@ def downloadFile(url,filename):
 downloadLink = 'https://thumbs.dreamstime.com/z/close-up-inside-okra-flowe-45588243.jpg'
 # downloadFile(downloadLink,'downloads/testImage.jpg')
 
-
+#removefile from receivedModelParameter
 def removeFiles():
     for i in range(5):
         num=i+1
@@ -28,6 +29,7 @@ def removeFiles():
              print("That file does not exist")
     print("Model parameters are removed from the local filesystem")
 
+#remove the file from the initModelParameters
 def removeInitFiles():
     for i in range(5):
         num=i+1

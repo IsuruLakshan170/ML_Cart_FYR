@@ -8,17 +8,6 @@ from keras.callbacks import EarlyStopping
 #import files
 import saveModelData as sm
 
-def trainModel(model,train_data1,train_labels1):
-    # Train the model
-    early_stopping = EarlyStopping(monitor='val_loss', patience=5)
-
-    model.fit(train_data1, train_labels1, epochs=1, batch_size=128, validation_split=0.2, callbacks=[early_stopping])
-    print("Model trained successfully")
-
-    #save model data
-    sm.saveModelData(model)
-    return model
-   
 def continuoustrainModel(model,train_data1,train_labels1):
     # Train the model
     early_stopping = EarlyStopping(monitor='val_loss', patience=5)
@@ -27,4 +16,16 @@ def continuoustrainModel(model,train_data1,train_labels1):
     #save model data
     sm.saveModelData(model)
     return model
+   
+
+# def trainModel(model,train_data1,train_labels1):
+#     # Train the model
+#     early_stopping = EarlyStopping(monitor='val_loss', patience=5)
+
+#     model.fit(train_data1, train_labels1, epochs=1, batch_size=128, validation_split=0.2, callbacks=[early_stopping])
+#     print("Model trained successfully")
+
+#     #save model data
+#     sm.saveModelData(model)
+#     return model
    

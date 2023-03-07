@@ -2,9 +2,8 @@
 from sklearn.model_selection import train_test_split
 import pandas as pd
 from keras.utils import to_categorical
-import numpy as np
 
-
+#split generated dataset
 def splitDataset():
     #Load  the dataset from the CSV file
     df = pd.read_csv('dataset/dataset.csv')
@@ -39,8 +38,6 @@ def splitDataset():
     y_test_np = y_test_np.argmax(axis=-1)
     print("Dataset Splited")
     return x_train_np, y_train_np,x_test_np,y_test_np
-
-
 
 #split recoded dataset
 def splitCartData():

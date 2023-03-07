@@ -1,7 +1,6 @@
 #Encoding and decoding model parameters
 
 import base64
-import initModel 
 import modelGenerator as mg
 import modelAccuracy as ma
 import dataSetSplit as sp
@@ -22,17 +21,19 @@ def encodeModelParameters(x_test_np,y_test_np):
 
 def decodeModelParameters(encoded_message,x_test_np,y_test_np):
     print("Decoding ----------------> ")
-    model = mg.create_model()
     #decode the model
     decode_b64 = base64.b16decode(encoded_message)
     decode_model_weights=pickle.loads(decode_b64)
-    
+   
     model2 = mg.create_model()
     model2.set_weights(decode_model_weights)
     ma.getModelAccuracy(model2,x_test_np,y_test_np)
 
     return decode_model_weights
 
+#split the the dataset
 x_train_np, y_train_np,x_test_np,y_test_np =sp.splitDataset()
+#encode the model weights 
 encodedData = encodeModelParameters(x_test_np,y_test_np)
+#decode the model weights
 decodeModelParameters(encodedData,x_test_np,y_test_np)
