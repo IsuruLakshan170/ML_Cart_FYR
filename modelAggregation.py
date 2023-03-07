@@ -43,7 +43,6 @@ def modelAggregation():
     
 
 
-
 # def initialModelAggregation():
 #     print("Strat initial aggregation")
 #     parameterArray = [0] * 6
@@ -106,16 +105,68 @@ def initialModelAggregation():
     ma.getModelAccuracy(modelAG,x_test_np,y_test_np)
     #save averaged parameters
     sm.saveModelData(modelAG)
-    modelAG.summary()
 
     print("Aggregrate Complete")
+    
 
-# def initialModelAggregationTest():
+
+#have higher precedence
+# def testModelAggregation():
+#     print("Strat initial aggregation")
+#     x_train_np, y_train_np,x_test_np,y_test_np =sp.splitDataset()
+#     model1 =mg.create_model()
+#     model1.load_weights(f'initModelParameters/model_weights_3.h5')
+#     ma.getModelAccuracy(model1,x_test_np,y_test_np)
+#     weight_1  = model1.get_weights()
+
+#     model2=mg.create_model()
+#     model2.load_weights(f'initModelParameters/model_weights_2.h5')
+#     ma.getModelAccuracy(model2,x_test_np,y_test_np)
+#     weight_2  = model2.get_weights()
+    
+#     averageWeight=[(w1 + w2  )/2 for w1, w2 in zip(weight_1, weight_2)]
+
+#     modelAG=mg.create_model()
+#     modelAG.set_weights(averageWeight)
+#     print("Aggregated Model ------> ")
+#     ma.getModelAccuracy(modelAG,x_test_np,y_test_np)
+    
+# testModelAggregation()
+
+
+
+# def testModelAggregation():
 #     print("Strat initial aggregation")
 #     x_train_np, y_train_np,x_test_np,y_test_np =sp.splitDataset()
 #     model1 =mg.create_model()
 #     model1.load_weights(f'initModelParameters/model_weights_1.h5')
-#     model1.summary()
+#     ma.getModelAccuracy(model1,x_test_np,y_test_np)
+#     weight_1  = model1.get_weights()
 
+#     model2=mg.create_model()
+#     model2.load_weights(f'initModelParameters/model_weights_2.h5')
+#     ma.getModelAccuracy(model2,x_test_np,y_test_np)
+#     weight_2  = model2.get_weights()
     
-initialModelAggregation()
+#     model3=mg.create_model()
+#     model3.load_weights(f'initModelParameters/model_weights_3.h5')
+#     ma.getModelAccuracy(model3,x_test_np,y_test_np)
+#     weight_3  = model3.get_weights()
+    
+#     model4=mg.create_model()
+#     model4.load_weights(f'initModelParameters/model_weights_4.h5')
+#     ma.getModelAccuracy(model4,x_test_np,y_test_np)
+#     weight_4  = model4.get_weights()
+    
+#     model5=mg.create_model()
+#     model5.load_weights(f'initModelParameters/model_weights_5.h5')
+#     ma.getModelAccuracy(model5,x_test_np,y_test_np)
+#     weight_5 = model5.get_weights()
+    
+#     averageWeight=[(w1 + w2 +w3 +w4 + w5)/5 for w1, w2 ,w3,w4 ,w5 in zip(weight_1, weight_2,weight_3 ,weight_4,weight_5)]
+
+#     modelAG=mg.create_model()
+#     modelAG.set_weights(averageWeight)
+#     print("Aggregated Model ------> ")
+#     ma.getModelAccuracy(modelAG,x_test_np,y_test_np)
+# testModelAggregation()
