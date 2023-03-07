@@ -32,7 +32,7 @@ def datasetAnalize():
           #aggregate the models
           modelAggregation.modelAggregation()
           #remove received files
-          fh.removeFiles()
+        #   fh.removeFiles()
           return "Aggregated"
       return ""
   

@@ -10,12 +10,12 @@ import fileHandle as fh
 
 
 def intModel():
-    # #generate dataset
-    ds.DatasetGenerator(10000)
-    # split data and use for predict accuracy
-    x_train,y_train,x_test,y_test =sp.splitDataset()
+    # # #generate dataset
+    # ds.DatasetGenerator(10000)
+    # # split data and use for predict accuracy
+    # x_train,y_train,x_test,y_test =sp.splitDataset()
     # mt.trainModel(model,x_train,y_train)
     modelAggregation.initialModelAggregation()
-    fh.removeInitFiles()
+    # fh.removeInitFiles()
     # return model
     

@@ -12,8 +12,8 @@ def getModelAccuracy(model,test_data1,test_labels1):
 
     # Calculate the accuracy of the model
 
-    print(y_pred_model_1)
-    print(test_labels1)
+    # print(y_pred_model_1)
+    # print(test_labels1)
     accuracy_model_1 = accuracy_score(test_labels1, y_pred_model_1)
     print("Model  Accuracy:", accuracy_model_1*100)
     return accuracy_model_1

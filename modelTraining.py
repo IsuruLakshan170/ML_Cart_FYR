@@ -19,9 +19,6 @@ def trainModel(model,train_data1,train_labels1):
     sm.saveModelData(model)
     return model
    
-   
-
-
 def continuoustrainModel(model,train_data1,train_labels1):
     # Train the model
     early_stopping = EarlyStopping(monitor='val_loss', patience=5)
