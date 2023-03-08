@@ -17,8 +17,9 @@ QUEUE_LOCK = threading.Lock()
 USERID_LOCK = threading.Lock()
 CLUSTERID_LOCK = threading.Lock()
 CLUSTERLIST_LOCK = threading.Lock()
+# import encodeParameter
 
-MESSAGE ="Model 1"
+MESSAGE ="Model 2"
 
 #request Cluster ID
 def ReqCluserId(UserId):
@@ -48,7 +49,6 @@ def ResHandler(self,response):
     global CLUSTERLIST
     global SENDERSTOCK
     global MESSAGE
-    MESSAGE = encodeParameter.encodeModelParameters()
     
     if self == "CLUSTERID":
         with CLUSTERID_LOCK:
@@ -59,14 +59,12 @@ def ResHandler(self,response):
             CLUSTERLIST = response
         # print("PEER LIST:",CLUSTERLIST)
     if self == "REQUESTMODEL":
-        # SENDERSTOCK.append(["SENDMODEL",[MESSAGE,"Format"],response[1][0],response[1][2]])\
+        # SENDERSTOCK.append(["SENDMODEL",[MESSAGE,"Format"],response[1][0],response[1][2]])
         SENDERSTOCK.append(["SENDMODEL",MESSAGE,response[1][0],response[1][2]])
-
-        # print("RECIEVED : ",response)
     if self == "SENDMODEL":
         QUEUE.pop(0) #should validate wht i recived and from where
         print("RECIEVED MODEL : ",response[1])
-        print("TYPE",type(response[1]))
+        encodeParameter.decodeModelParameters(response[1])
     return
 
 #function to handle socket connection

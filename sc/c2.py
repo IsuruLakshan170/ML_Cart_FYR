@@ -16,6 +16,7 @@ QUEUE_LOCK = threading.Lock()
 USERID_LOCK = threading.Lock()
 CLUSTERID_LOCK = threading.Lock()
 CLUSTERLIST_LOCK = threading.Lock()
+import encodeParameter
 
 MESSAGE ="Model 2"
 
@@ -62,6 +63,7 @@ def ResHandler(self,response):
     if self == "SENDMODEL":
         QUEUE.pop(0) #should validate wht i recived and from where
         print("RECIEVED MODEL : ",response[1])
+        encodeParameter.decodeModelParameters(response[1])
     return
 
 #function to handle socket connection
