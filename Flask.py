@@ -7,6 +7,7 @@ import serverSock
 import QRScanner
 import datetime
 
+selectedItem ="Item 0"
 
 app = Flask(__name__)
 
@@ -17,9 +18,11 @@ def login():
 
 @app.route("/result", methods =['POST',"GET"])
 def result():
+    global selectedItem
+    
     output = request.form.to_dict()
     month = output["month"]
-    item = output["itemNo"]
+    item = selectedItem
     gender = output["gender"]
     wf.writetoCSV(month, item, gender)
     res = im.datasetAnalize()
@@ -32,11 +35,11 @@ def start():
 
 @app.route('/getItems', methods =['POST',"GET"])
 def getItems():
-    # results = QRScanner.QRReader()
-    output = request.form.to_dict()
-    current_time = datetime.datetime.now().time()
-    print("Return successful",current_time)
-    return render_template('index.html',res=current_time)
+    results = QRScanner.QRReader()
+    global selectedItem
+    selectedItem = results
+    print("Return successful")
+    return render_template('index.html',res=results)
 
 if __name__ == '__main__':
     # Create two threads: one for running the Flask app, the other for running server connections
@@ -45,13 +48,14 @@ if __name__ == '__main__':
 
     QRScanner_thread = threading.Thread(target=QRScanner.QRReader)
     # Start the threads
-    train_thread.start()
+    # train_thread.start()
     flask_thread.start()
-    QRScanner_thread.start()
+    # QRScanner_thread.start()
+    
     # Wait for the threads to finish
     flask_thread.join()
-    train_thread.join()
-    QRScanner_thread.join()
+    # train_thread.join()
+    # QRScanner_thread.join()
 
 
 
