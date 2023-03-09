@@ -64,7 +64,7 @@ def ResHandler(self,response):
     if self == "SENDMODEL":
         QUEUE.pop(0) #should validate wht i recived and from where
         print("RECIEVED MODEL : ",response[1])
-        encodeParameter.decodeModelParameters(response[1])
+        # encodeParameter.decodeModelParameters(response[1])
     return
 
 #function to handle socket connection

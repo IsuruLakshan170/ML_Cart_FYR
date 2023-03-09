@@ -60,13 +60,15 @@ def ResHandler(self,response):
         # print("PEER LIST:",CLUSTERLIST)
     if self == "REQUESTMODEL":
         # SENDERSTOCK.append(["SENDMODEL",[MESSAGE,"Format"],response[1][0],response[1][2]])
-        MESSAGE = encodeParameter.encodeModelParameters()
+        # MESSAGE = encodeParameter.encodeModelParameters()
         print("MESSAGE")
         SENDERSTOCK.append(["SENDMODEL",MESSAGE,response[1][0],response[1][2]])
     if self == "SENDMODEL":
         QUEUE.pop(0) #should validate wht i recived and from where
         print("RECIEVED MODEL : ",response[1])
+        print(type(response[1]))
         # encodeParameter.decodeModelParameters(response[1])
+        
     return
 
 #function to handle socket connection

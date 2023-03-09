@@ -43,7 +43,7 @@ def decodeModelParameters(encoded_message):
 
     return decode_model_weights
 
-# #encode the model weights 
-# encodedData = encodeModelParameters()
-# #decode the model weights
-# decodeModelParameters(encodedData)
+#encode the model weights 
+encodedData = encodeModelParameters()
+#decode the model weights
+decodeModelParameters(encodedData)

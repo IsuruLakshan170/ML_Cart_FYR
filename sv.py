@@ -106,7 +106,7 @@ async def handle_client(reader, writer):
             for taskblockid in taskList:
                 if userId == taskblockid:
                     tempdatBlock = eval(TaskQUEUE[taskblockid])
-                    print("----task list : ",taskblockid," : ",TaskQUEUE[taskblockid])
+                    # print("----task list : ",taskblockid," : ",TaskQUEUE[taskblockid])
                     tempResponse = str([tempdatBlock[0],tempdatBlock])
                     writer.write(tempResponse.encode())
                     await writer.drain()
@@ -149,7 +149,7 @@ async def TaskSubmitter():
                     evalTempTask = eval(tempTask[1])
                     TaskQUEUE[tempTask[0]] = str(tempTask[1])
                     print("task applyed")
-                    print(evalTempTask[0]," : ",tempTask)
+                    # print(evalTempTask[0]," : ",tempTask)
                 else:
                     TASKHOLDER.append(tempTask)
                     break
