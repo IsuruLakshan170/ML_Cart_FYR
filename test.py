@@ -1,12 +1,8 @@
-x = 10  # global variable
+import datetime
 
-def print_number():
-    print(x)  # accessing global variable from within function
+current_date = datetime.date.today()
+print(current_date)
+import datetime
 
-def increase_number():
-    global x  # specifying that we want to modify the global variable
-    x += 1   # modifying global variable
-
-# print_number()  # Output: 10
-# increase_number()
-# print_number()  # Output: 11
+current_month = datetime.datetime.now().month
+print(current_month)

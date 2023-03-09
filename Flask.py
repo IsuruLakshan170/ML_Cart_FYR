@@ -13,20 +13,27 @@ app = Flask(__name__)
 
 @app.route('/')
 def login():
+    current_date = datetime.date.today()
     # QRScanner.QRReader()
-   return render_template('index.html')
+    return render_template('index.html',  currentDate=current_date)
 
 @app.route("/result", methods =['POST',"GET"])
 def result():
     global selectedItem
-    
+    current_date = datetime.date.today()
     output = request.form.to_dict()
-    month = output["month"]
-    item = selectedItem
+    month = datetime.datetime.now().month
+    item = 0
+    if selectedItem == "Item 1":
+        item =1
+    elif selectedItem == "Item 2":
+        item =2
+    elif selectedItem == "Item 3":
+        item =3
     gender = output["gender"]
     wf.writetoCSV(month, item, gender)
     res = im.datasetAnalize()
-    return render_template("index.html", month=month, item=item, res=res, gender=gender)
+    return render_template("index.html",currentDate=current_date)
 
 @app.route("/start", methods =['POST',"GET"])
 def start():
@@ -35,11 +42,13 @@ def start():
 
 @app.route('/getItems', methods =['POST',"GET"])
 def getItems():
+
+    current_date = datetime.date.today()
     results = QRScanner.QRReader()
     global selectedItem
     selectedItem = results
     print("Return successful")
-    return render_template('index.html',res=results)
+    return render_template('index.html',selectItem=selectedItem,  currentDate=current_date)
 
 if __name__ == '__main__':
     # Create two threads: one for running the Flask app, the other for running server connections
