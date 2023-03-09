@@ -5,6 +5,7 @@ import modelGenerator as mg
 import modelAccuracy as ma
 import dataSetSplit as sp
 import pickle
+import os
 
 
 def encodeModelParameters():
@@ -13,6 +14,12 @@ def encodeModelParameters():
     print("Encoding ----------------> ")
     model = mg.create_model()
     model.load_weights('receivedModelParameter/model_weights_1.h5')
+     # Get the size of the saved model weight file
+    model_size_bytes = os.path.getsize('modelData/model_weights.h5')
+    # Convert bytes to MB
+    model_size_mb = model_size_bytes / (1024 * 1024)
+
+    print(f"The size of the  model parameters is {model_size_mb:.2f} MB.")
     # ma.getModelAccuracy(model,x_test_np,y_test_np)
     receivedModelParameters  = model.get_weights()
     
@@ -23,7 +30,9 @@ def encodeModelParameters():
     my_string = encoded_message.decode("utf-8")
 
     print(type(my_string))
-    print("Return encoded parameters as string")
+    print("Size of encoded model parameter is (String Data type): {:.2f} MB".format(len(my_string) / (1024 * 1024)))
+
+    # print("Return encoded parameters as string")
     return my_string
 
 def decodeModelParameters(encoded_message):
@@ -43,7 +52,10 @@ def decodeModelParameters(encoded_message):
 
     return decode_model_weights
 
+
+
 #encode the model weights 
 encodedData = encodeModelParameters()
 #decode the model weights
 decodeModelParameters(encodedData)
+
